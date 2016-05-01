@@ -20,6 +20,7 @@
      auto-completion
      better-defaults
      emacs-lisp
+     yaml
      git
      markdown
      org
@@ -45,21 +46,27 @@
      evernote
      vim-empty-lines
      (colors :variables
-             colors-enable-rainbow-identifiers nil
-             colors-enable-nyan-cat-progress-bar t)
-     org 
+             colors-enable-rainbow-identifiers nil)
+             ;;colors-enable-nyan-cat-progress-bar t)
+     org
      restclient
      themes-megapack
      jsx-mode
      tmux
+     extra-langs
+     github
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      sqlup-mode
+                                      wtf
+                                      jade-mode
+                                      )
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(pbcopy)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -96,7 +103,7 @@ before layers configuration."
                          solarized-dark
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color.
-   dotspacemacs-colorize-cursor-according-to-state t
+   ;; dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("PragmataPro for Powerline"
@@ -205,6 +212,7 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(js2-basic-offset 2)
  '(paradox-github-token t)
  '(ring-bell-function (quote ignore) t))
 (custom-set-faces
