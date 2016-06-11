@@ -62,11 +62,10 @@
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(
                                       sqlup-mode
-                                      wtf
                                       jade-mode
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(pbcopy)
+   ;; dotspacemacs-excluded-packages '(pbcopy)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -97,7 +96,8 @@ before layers configuration."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(molokai
+   dotspacemacs-themes '(default
+                         molokai
                          spolsky
                          solarized-light
                          solarized-dark
@@ -185,7 +185,7 @@ before layers configuration."
   ;; User initialization goes here
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
@@ -198,6 +198,13 @@ layers configuration."
   ;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
   (setq powerline-default-separator 'nil)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (load "~/Documents/forest-blue-emacs/forest-blue-theme.el")
+  (load-theme 'forest-blue)
+  ;; (defun on-after-init ()
+    (unless (display-graphic-p (selected-frame))
+      (set-face-background 'default "unspecified-bg" (selected-frame)))
+
+  ;; (add-hook 'window-setup-hook 'on-after-init)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -212,6 +219,9 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(custom-safe-themes
+   (quote
+    ("4c2005d69dc2f3d5ffaa57dc3d9d7365110bbf67abda03bffac0cda533aaf870" "068dce6a7cf7ccd10726d006b8120631d35dd03eb069b8322fc37cf2ff194574" "f19c69999135e14072174af53633359ad5d3f9e3335d32943a2cfc6ae47bf369" "1c60250030eef11f40fb339ec90fd9105ed12cf85dfbac85b8736a1b74e14ef0" "284f4f38e9896008984cf5e922dd1e5759a0611dd646a68c724979cbfecf159d" "5b4cfa854ca0c058218f62d2241ecbc888857ffa3e957c6c9692cd9a3595779c" "ef7168829f01170e3c3afc87dd27ffb4ef1da254d74796ce8ae47061c650473d" "d689cc040fb617f69c0cd25c65a068163aa0579a9a9c9ad316cb72b19036b080" "aac0aa2862dbce26e6e9e11db369d3994b5dedee13b5608f7452ebf388718ff5" "fee6601aeec81d57fb558b36ca82ecc56f8acf031038219d2bead49896bba2ef" "85fd57e0635122f990ef3cc352d9de9fc04074e834f2e2a543a1db6ec95361f4" "b11e8d24fc519a0d99ec0dfc2fa72a5c3cb7cb95ae361fd18cdfebb22ef7ef1e" "616600a22c9d10412f195219cc335b1bb3bb7179f848c7877a093daa56ceda74" "3661051320bac146099c45996cc8dece07d06b47e9cced47e399c32d9d85e3da" "51d0793c0a0775a475e3688ea85f335a28fd8a6bda7a5350f17cfa017279bb95" "a722c36ced3eae0d77feaafa29dc59c77b15d08df6402b611b5a3f72a3c72d41" "5752f05dba47b64ac9d54f8254b090579928d95819a84f07348e3469219a1c17" "11a25dedf965443869976817977595dbe55a46a429573d24edbadd4f10080831" "45194cdd8181e9578c5a36f22bdd6815c350aecf1d3dc8811b0ce6121606268b" "252a3be6365216d581b68dab60b257df5692cbcb60c53e9932a2f7978961ac78" "bf1b20845244e086a71225982514402be1c57930a38c70fa30be60966eb2528a" "d9f32d3cf2297bf8f259b0a46980a431efeb33bb8be23fbf8e49df7dead8bada" "69a42dc44a4e06e67c7549ba371c790e7151bbc2efed2fc4d5c4dda66a4a49c8" "fd467b6e896dd8729811f54eb5b414117710fbece21d58e758f4e5ca0c314586" "affbd9c4e954d1873156e445ddf6d0e360dba5242a4bbabb2d6b7daa529e3723" "ca025825138d45c3d0cc4b493be22bd812ddf5ce331b45a1d41f74b9f62db07f" "96065bb5a809aae8b75de4515ecdac322e00c2c9cc115cfee44718e10ef19d7f" "6888dd952439a97a441aecc2afe257c0d037c0c3af55f2143cc1ef908b746704" "90501e2c87f758e6b2fc6bb19485d3575c6ad76cfda6bbee5b88232f9d3297f1" "0652dc7dfd351093be2d3b01bcbebadd217477b7176f335d54bf1d380786d4d3" "6ce5c7a349b1f553ab9e0da818dd233a92cd77ed7af7af91b431e2bc6b81a9c0" "97e8d00c435b49dac987f05dba1144663448ff3db18fa61b11ce280c93c9951f" "ce5049b1e27275630bdb29b3fda54190e8b771ba95f4183549253167f0580810" "c48d13bdee76b837e57a4ded50c08a342186231a5889715981d8a49bc71c2fce" "af478651415098f9a999f2f0adf436420f0104938b4dba26c911e2401f1f1afa" "1fa0159e3a492bb387405face1d841bf6192dfccf62e01d155e9681c0b4bd1c2" "51a0c6fad8a1ad1243f2c5cc6ece7e6078ee59fc36298e6e8ce3714498eb3464" "2cbe24bd2e1d6e571429cc41db7f101e217fb746e8e62bd152f77d04d63e2ef7" "d7f3247fef7f4434d25c7e4fad8e132faefd5860648f736681a3ffc9ffc18544" "dcec570f8977c18c3002efa2c22a6effb330b8695cb212d12cecaa2563948514" "c50eb0aa0d77c58516863e288fe9e593418508d7777b49ee92819f622df7eb49" "69a1d459c01a8a3cb935bca5c7ac0839f9b134d6004537bd8321599518d56dee" "ba708b085135787d612b4ed5f20158870fe2c95dcd2b88c624bf526e1039fc21" "06b3073b390f99f08f97bb17355db34c66510d48585ae97e290e949cd27ea1bf" default)))
  '(js2-basic-offset 2)
  '(paradox-github-token t)
  '(ring-bell-function (quote ignore) t))
@@ -220,6 +230,4 @@ layers configuration."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background "#1B1D1E" :foreground "#F8F8F2"))))
- '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ )
