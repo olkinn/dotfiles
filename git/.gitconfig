@@ -1,0 +1,18 @@
+[user]
+	name = Olya Piatrova	 
+	email = olkinn@ymail.com
+	username = olkinn
+[core]
+	excludesfile = ~/.gitignore_global
+[push]
+	default = simple
+[color]
+	ui = true
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+	st = status -sb
+[github]
+	user = olkinn
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
+
