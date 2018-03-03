@@ -12,4 +12,4 @@ alias l="ls -la"
 
 set -g __fish_git_prompt_char_dirtystate '+'
 
-thefuck --alias | source
+# thefuck --alias | source
