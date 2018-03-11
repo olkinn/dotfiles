@@ -1,3 +1,5 @@
+source ~/dev/dotfiles/.private.fish
+
 # Aliases
 alias :q=exit
 alias :wq=exit
