@@ -470,6 +470,13 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   )
 
+
+(defun my-change-window-divider ()
+  (let ((display-table (or buffer-display-table standard-display-table)))
+    (set-display-table-slot display-table 5 ?│)
+    (set-window-display-table (selected-window) display-table)))
+
+
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
 This function is called at the very end of Spacemacs startup, after layer
@@ -480,7 +487,9 @@ before packages are loaded."
   (setq evil-insert-state-cursor 'bar); ⎸
   (setq evil-normal-state-cursor 'hbar); _
   (setq powerline-default-separator 'nil)
+  (setq js-indent-level 2)
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+  (add-hook 'window-configuration-change-hook 'my-change-window-divider)
   (spacemacs/set-leader-keys
     "bk"  'ido-kill-buffer)
   (unless (display-graphic-p (selected-frame))
