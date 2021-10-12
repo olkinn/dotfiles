@@ -1,5 +1,11 @@
 source ~/dev/dotfiles/.private.fish
 
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end
+
+fish_add_path /usr/local/bin
+
 # Aliases
 alias :q=exit
 alias :wq=exit
@@ -13,5 +19,3 @@ alias gp="git push"
 alias l="ls -la"
 
 set -g __fish_git_prompt_char_dirtystate '+'
-
-# thefuck --alias | source
